@@ -2637,7 +2637,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
         MENU_ITEM(submenu, MSG_LEVEL_BED, _lcd_level_bed_continue);
       #else
         // Automatic leveling can just run the G-code
-        MENU_ITEM(gcode, MSG_LEVEL_BED, is_homed ? PSTR("G29") : PSTR("G28\nG29"));
+        MENU_ITEM(gcode, MSG_LEVEL_BED, is_homed ? PSTR("G29") : PSTR("G28\nG29\nM500"));
       #endif
 
       // Homed and leveling is valid? Then leveling can be toggled.
@@ -2734,7 +2734,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
     #elif HAS_LEVELING && DISABLED(SLIM_LCD_MENUS)
 
       #if DISABLED(PROBE_MANUALLY)
-        MENU_ITEM(gcode, MSG_LEVEL_BED, PSTR("G28\nG29"));
+        MENU_ITEM(gcode, MSG_LEVEL_BED, PSTR("G28\nG29\nM500"));
       #endif
       if (leveling_is_valid()) {
         bool new_level_state = planner.leveling_active;
