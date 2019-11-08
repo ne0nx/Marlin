@@ -881,9 +881,9 @@
 #define Z_BED_SIZE (Z_MAX_POS - Z_MIN_POS)
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS 1
-#define Y_MIN_POS 1
-#define Z_MIN_POS 1
+#define X_MIN_POS 0
+#define Y_MIN_POS 0
+#define Z_MIN_POS 0
 #define X_MAX_POS 255
 #define Y_MAX_POS 210
 #define Z_MAX_POS 210
@@ -1278,7 +1278,7 @@
 
 #if ENABLED(NOZZLE_PARK_FEATURE)
   // Specify a park position as { X, Y, Z }
-  #define NOZZLE_PARK_POINT { (-2), (7), 10 }
+  #define NOZZLE_PARK_POINT { (X_MIN_POS), (Y_MIN_POS), 20 }
   #define NOZZLE_PARK_XY_FEEDRATE 100   // X and Y axes feedrate in mm/s (also used for delta printers Z axis)
   #define NOZZLE_PARK_Z_FEEDRATE 5      // Z axis feedrate in mm/s (not used for delta printers)
 #endif
